@@ -12,7 +12,7 @@ GROUP BY t.test_name
 HAVING COUNT(pt.patient_id) > 30
 ORDER BY liczba_pacjentow DESC;    
 
-WYNIK:  
+**WYNIK:**  
 +-----------+------------------+
 | test_name | liczba_pacjentow |
 +-----------+------------------+
