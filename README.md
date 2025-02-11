@@ -22,17 +22,19 @@ ORDER BY liczba_pacjentow DESC;
 
 ## Zapytanie 4iii: Wyświetli nazwy testów i obliczoną średnią liczbę wariantów dla każdego testu
 **Zapytanie:**
-SELECT t.test_name, AVG(r.variant) AS srednia_wariantow
+SELECT t.test_name, COUNT(r.variant) AS liczba_wariantow, AVG(CAST(SUBSTRING_INDEX(r.position, ':', -1) AS UNSIGNED)) AS srednia_pozycja
 FROM results r
 JOIN tests t ON r.test_id = t.test_id
 GROUP BY t.test_name
-ORDER BY srednia_wariantow DESC;
+ORDER BY liczba_wariantow DESC;
 
-+-----------+-------------------+
-| test_name | srednia_wariantow |
-+-----------+-------------------+
-| SNP Array |                 0 |
-| NGS-panel |                 0 |
-| WES       |                 0 |
-| WGS       |                 0 |
-+-----------+-------------------+
+**WYNIK:**
++-----------+------------------+-----------------+
+| test_name | liczba_wariantow | srednia_pozycja |
++-----------+------------------+-----------------+
+| SNP Array |              150 |     481836.3200 |
+| NGS-panel |              129 |     493816.4186 |
+| WES       |              120 |     465391.5583 |
+| WGS       |              101 |     504233.7129 |
++-----------+------------------+-----------------+
+
