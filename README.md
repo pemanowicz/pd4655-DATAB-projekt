@@ -22,7 +22,6 @@ ORDER BY liczba_pacjentow DESC;
 
 ## Zapytanie 4iii: Wyświetli nazwy testów i obliczoną średnią liczbę wariantów dla każdego testu
 **Zapytanie:**
-```sql
 SELECT t.test_name, AVG(r.variant) AS srednia_wariantow
 FROM results r
 JOIN tests t ON r.test_id = t.test_id
