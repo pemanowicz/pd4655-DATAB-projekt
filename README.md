@@ -19,9 +19,10 @@ ORDER BY liczba_pacjentow DESC;
 | SNP Array |               49 |
 | NGS-panel |               43 |
 +-----------+------------------+    
-
+```
 ## Zapytanie 4iii: Wyświetli nazwy testów i obliczoną średnią liczbę wariantów dla każdego testu
-**Zapytanie:**
+**Zapytanie:**  
+```sql
 SELECT t.test_name, COUNT(r.variant) AS liczba_wariantow, AVG(CAST(SUBSTRING_INDEX(r.position, ':', -1) AS UNSIGNED)) AS srednia_pozycja
 FROM results r
 JOIN tests t ON r.test_id = t.test_id
